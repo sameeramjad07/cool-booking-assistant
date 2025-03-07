@@ -1,6 +1,32 @@
 import { v4 as uuidv4 } from 'uuid';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import busRoutesData from './bus_routes.json'; // Import static data
+
+const busRoutesData = [
+  {
+    "id": "route1",
+    "origin": "New York",
+    "destination": "Boston",
+    "departure_time": "08:00",
+    "arrival_time": "12:00",
+    "price": 45
+  },
+  {
+    "id": "route2",
+    "origin": "Boston",
+    "destination": "Washington DC",
+    "departure_time": "10:00",
+    "arrival_time": "15:30",
+    "price": 55
+  },
+  {
+    "id": "route3",
+    "origin": "New York",
+    "destination": "Washington DC",
+    "departure_time": "09:00",
+    "arrival_time": "13:30",
+    "price": 50
+  }
+];
 
 // Configure logging
 const logger = {
