@@ -156,11 +156,15 @@ class DataManager {
       const result = await extractionModel.generateContent(extractionPrompt);
       let jsonStr = result.response.text();
       logger.info(`Gemini raw response: '${jsonStr}'`);
-
-      if (jsonStr.startsWith('```json')) jsonStr = jsonStr.slice(7);
-      if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
-
-      const info = JSON.parse(jsonStr.trim()) as ExtractedInfo;
+    
+      // Attempt to extract valid JSON from the response
+      jsonStr = jsonStr.trim(); // Remove leading/trailing whitespace
+    
+      // Remove potential non-JSON parts
+      jsonStr = jsonStr.replace(/^```json/, '').replace(/^json/, '').replace(/```$/, '').trim();
+    
+      // Parse JSON
+      const info = JSON.parse(jsonStr) as ExtractedInfo;
       logger.info(`Parsed JSON: ${JSON.stringify(info)}`);
       return info;
     } catch (e) {
@@ -173,6 +177,7 @@ class DataManager {
         seat_preference: null,
       };
     }
+    
   }
 }
 

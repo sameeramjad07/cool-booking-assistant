@@ -32,8 +32,8 @@ export default function VoicePage() {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const responseCanvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
-  const responseAnimationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
+  const responseAnimationRef = useRef<number>(0);
   const [waveformData, setWaveformData] = useState<number[]>([]);
   const [responseWaveformData, setResponseWaveformData] = useState<number[]>([]);
 
