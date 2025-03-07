@@ -5,6 +5,9 @@ import dataManager from '../../lib/dataManager';
 
 // Configure Gemini API
 const API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyDl-nEytKjUk8hyHcoQPvlOrbsKDmt9JUk';
+if (!API_KEY) {
+    throw new Error('GEMINI_API_KEY is not set in environment variables');
+  }
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 

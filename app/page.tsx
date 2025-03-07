@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Mic, Bus, Calendar, MapPin, ArrowRight } from "lucide-react"
+import { Mic, Bus, Calendar, MapPin, MessageSquare } from "lucide-react"
 
 export default function LandingPage() {
   return (
@@ -22,9 +22,16 @@ export default function LandingPage() {
             Testimonials
           </a>
         </nav>
-        <Link href="/chat">
-          <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
-        </Link>
+        <div className="flex gap-2">
+          <Link href="/chat">
+            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+              Text Chat
+            </Button>
+          </Link>
+          <Link href="/voice">
+            <Button className="bg-blue-600 hover:bg-blue-700">Voice Assistant</Button>
+          </Link>
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -35,11 +42,18 @@ export default function LandingPage() {
             Our AI assistant makes booking bus tickets as easy as having a conversation. Just speak or type your travel
             plans.
           </p>
-          <Link href="/chat">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
-              Start Booking <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+          <div className="flex gap-4">
+            <Link href="/chat">
+              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-6 py-6">
+                <MessageSquare className="mr-2 h-5 w-5" /> Text Chat
+              </Button>
+            </Link>
+            <Link href="/voice">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-lg px-6 py-6">
+                <Mic className="mr-2 h-5 w-5" /> Voice Assistant
+              </Button>
+            </Link>
+          </div>
         </div>
         <div className="md:w-1/2 flex justify-center">
           <div className="relative w-full max-w-md">
@@ -105,36 +119,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How it Works */}
-      <section id="how-it-works" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16 text-gray-900">How It Works</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
-                1
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Tell Us Your Plans</h3>
-              <p className="text-gray-600">Speak or type your destination, date, and preferences.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
-                2
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Review Options</h3>
-              <p className="text-gray-600">Our assistant will show you available buses and prices.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
-                3
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Confirm & Pay</h3>
-              <p className="text-gray-600">Select your preferred option and complete your booking.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-blue-600 py-16">
         <div className="container mx-auto px-4 text-center">
@@ -142,9 +126,18 @@ export default function LandingPage() {
           <p className="text-blue-100 text-xl mb-8 max-w-2xl mx-auto">
             Experience the easiest way to book bus tickets with our voice-enabled assistant.
           </p>
-          <Link href="/chat">
-            <Button className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-6">Start Booking Now</Button>
-          </Link>
+          <div className="flex gap-4 justify-center">
+            <Link href="/chat">
+              <Button variant="outline" className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-6 py-6">
+                <MessageSquare className="mr-2 h-5 w-5" /> Text Chat
+              </Button>
+            </Link>
+            <Link href="/voice">
+              <Button className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-6 py-6">
+                <Mic className="mr-2 h-5 w-5" /> Voice Assistant
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
